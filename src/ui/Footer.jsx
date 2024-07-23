@@ -6,15 +6,15 @@ import { IoLogoFacebook, IoLogoInstagram } from "react-icons/io";
 function Footer() {
   return (
     <div className="flex flex-col gap-4 px-6 py-6 bg-stone-950 text-stone-50">
-      <div className="flex flex-col justify-around sm:flex-row">
-        <div className="flex flex-col gap-3">
+      <div className="flex flex-col justify-around gap-5 sm:flex-row">
+        <div className="flex flex-col gap-2">
           <Logo />
           <Button type="small" to="/contact">
             Book now
           </Button>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           <h2 className="uppercase ">Contact</h2>
           <p className="flex items-center gap-1">
             {" "}
@@ -38,7 +38,7 @@ function Footer() {
         </div>
         <div className="flex flex-col gap-3">
           <h2>Location</h2>
-          <p>Ottawa</p>
+          <p>Ottawa, ON 🇨🇦</p>
         </div>
       </div>
 
