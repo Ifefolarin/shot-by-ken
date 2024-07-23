@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import Button from "../../ui/Button";
 
 function ContactForm() {
   const [name, setName] = useState("");
@@ -66,10 +66,9 @@ function ContactForm() {
             id=""
           ></textarea>
         </div>
-
-        <button className="relative float-right py-3 uppercase transition-all duration-200 border sm:w-40 bg-stone-950 text-stone-50 rounded-3xl hover:bg-stone-800">
-          Book Now
-        </button>
+        <div>
+          <Button type="primary">Book now</Button>
+        </div>
       </div>
     </form>
   );
