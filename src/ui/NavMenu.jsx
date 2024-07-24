@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Button from "./Button";
 
 function NavMenu() {
   return (
@@ -13,9 +12,6 @@ function NavMenu() {
       <li className="link">
         <NavLink to="contact">Contact</NavLink>
       </li>
-      <Button type="small" to="/contact">
-        Book Now
-      </Button>
     </ul>
   );
 }
