@@ -41,7 +41,7 @@ const fakeData = [
 
 function PackageItems() {
   return (
-    <ul className="flex flex-col gap-4 sm:flex-row">
+    <ul className="flex flex-col gap-6 sm:flex-row">
       {fakeData.map((data) => (
         <PackageItem data={data} key={data.name} />
       ))}

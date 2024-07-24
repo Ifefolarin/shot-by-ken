@@ -6,6 +6,9 @@
   @apply transition-all duration-300 hover:underline underline-offset-8;
 }
 
+.active {
+  @apply underline underline-offset-8;
+}
 .input {
   @apply px-4 py-2 text-xs border border-black sm:text-lg active:ring-yellow-100 focus:outline-none focus:ring focus:ring-stone-200 focus:ring-offset-4;
 }

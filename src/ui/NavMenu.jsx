@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import Button from "./Button";
 
 function NavMenu() {
   return (
-    <ul className="flex [&.active]:underline justify-around gap-2 sm:gap-6 text-xs uppercase sm:text-xl ">
+    <ul className="flex justify-between gap-2 text-xs uppercase sm:gap-6 sm:text-xl ">
       <li className="link">
         <NavLink to="packages">Packages</NavLink>
       </li>
@@ -12,6 +13,9 @@ function NavMenu() {
       <li className="link">
         <NavLink to="contact">Contact</NavLink>
       </li>
+      <Button type="small" to="/contact">
+        Book Now
+      </Button>
     </ul>
   );
 }
