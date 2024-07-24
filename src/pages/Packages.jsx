@@ -2,7 +2,7 @@ import PackageItems from "../features/packages/PackageItems";
 
 function Packages() {
   return (
-    <div className="">
+    <div className="py-4">
       <PackageItems />
     </div>
   );

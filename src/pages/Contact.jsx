@@ -1,10 +1,15 @@
-import ContactDetails from "../features/contact/ContactDetails";
 import ContactForm from "../features/contact/ContactForm";
+
+import akere from "../assets/akere.jpeg";
 
 function Contact() {
   return (
-    <div className="flex flex-col items-center gap-4 px-2 py-2 bg-white md:py-10 lg: md:px-10 ">
-      <ContactDetails />
+    <div>
+      <img
+        className="h-[200px] w-[24rem] md:h-[35rem] md:w-full lg:absolute lg:w-full lg:min-h-[70rem] lg:-z-10 grayscale transition-all duration-300"
+        src={akere}
+        alt="image of akere"
+      />
       <ContactForm />
     </div>
   );

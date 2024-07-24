@@ -6,7 +6,7 @@ function Button({ children, type, disabled, to }) {
     primary:
       base +
       "bg-stone-950 py-3 sm:w-40 sm:float-right items-center w-full text-stone-50 hover:bg-stone-800 ",
-    small: base + "border hover:bg-stone-300 text-sm py-2 mb-2  ",
+    small: base + "border hover:bg-stone-300 text-sm py-2 mb-2",
   };
 
   if (to)
