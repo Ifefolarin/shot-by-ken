@@ -2,7 +2,7 @@ import Button from "../../ui/Button";
 
 function PackageItem({ data }) {
   return (
-    <li className="flex w-[250px] flex-col pb-4 gap-1 text-center  bg-stone-400 text-stone-50">
+    <li className="flex w-[250px] flex-col pb-4 gap-1 text-center bg-stone-400 text-stone-50">
       <img
         className="h-[200px] w-full  grayscale"
         src={data.image}
@@ -14,13 +14,13 @@ function PackageItem({ data }) {
           {data.subname && <span className="text-xs">({data?.subname})</span>}
         </div>
         <h3>${data.price}</h3>
-        <p className="flex flex-col">
+        <div className="flex flex-col gap-1">
           {data.features.map((feature, index) => (
-            <span feature={feature} key={index}>
+            <p feature={feature} key={index}>
               {feature}
-            </span>
+            </p>
           ))}
-        </p>
+        </div>
         <Button to="/contact" type="small">
           Book now
         </Button>

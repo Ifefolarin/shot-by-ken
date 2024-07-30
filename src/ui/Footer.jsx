@@ -17,7 +17,7 @@ function Footer() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h2 className="uppercase ">Contact</h2>
+          <h2 className="underline uppercase underline-offset-4 ">Contact</h2>
           <p className="flex items-center gap-1">
             {" "}
             <span>
