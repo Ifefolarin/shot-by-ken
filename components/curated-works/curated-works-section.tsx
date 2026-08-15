@@ -20,11 +20,11 @@ const CURATED = [
   },
   {
     src: "/images/curated/03.jpg",
-    alt: "Steph & Favor — wedding portrait",
+    alt: "Steph and Favour — wedding portrait",
     width: 1742,
     height: 2048,
     tag: "Wedding",
-    title: "Steph & Favor",
+    title: "Steph and Favour",
   },
 ];
 
