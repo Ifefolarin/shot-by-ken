@@ -14,7 +14,6 @@ const PORTFOLIO_IMAGES = [
   { src: "/images/portfolio/05.jpg", alt: "Winter wedding first kiss",                width: 2048, height: 1365, category: "weddings" },
   { src: "/images/portfolio/06.jpg", alt: "Portrait with gold jewellery detail",      width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/07.jpg", alt: "Gold lace studio portrait",                width: 1336, height: 2048, category: "studio"   },
-  { src: "/images/portfolio/08.jpg", alt: "Couple portrait in black and white",       width: 1742, height: 2048, category: "weddings" },
   { src: "/images/portfolio/09.jpg", alt: "Editorial portrait",                       width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/10.jpg", alt: "Studio portrait",                          width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/11.jpg", alt: "Portrait session",                         width: 1365, height: 2048, category: "studio"   },
@@ -27,8 +26,6 @@ const PORTFOLIO_IMAGES = [
   { src: "/images/portfolio/18.jpg", alt: "Studio portrait",                          width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/19.jpg", alt: "Wedding portrait session",                 width: 1365, height: 2048, category: "weddings" },
   { src: "/images/portfolio/20.jpg", alt: "Wedding photography",                      width: 1365, height: 2048, category: "weddings" },
-  { src: "/images/portfolio/21.jpg", alt: "Wedding couple portrait",                  width: 1365, height: 2048, category: "weddings" },
-  { src: "/images/portfolio/22.jpg", alt: "Wedding moment",                           width: 1365, height: 2048, category: "weddings" },
   { src: "/images/portfolio/23.jpg", alt: "Wedding ceremony portrait",                width: 1365, height: 2048, category: "weddings" },
   { src: "/images/portfolio/24.jpg", alt: "Wedding day portrait",                     width: 1365, height: 2048, category: "weddings" },
 ] as const;
@@ -76,7 +73,7 @@ export function PortfolioSection() {
       id="portfolio"
       ref={sectionRef}
       aria-labelledby="portfolio-heading"
-      className="py-[var(--spacing-section)] px-[var(--spacing-margin-mobile)] lg:px-[var(--spacing-margin-desktop)] max-w-[1440px] mx-auto"
+      className="pt-0 pb-[var(--spacing-section)] px-[var(--spacing-margin-mobile)] lg:px-[var(--spacing-margin-desktop)] max-w-[1440px] mx-auto"
     >
       {/* Header */}
       <p className="font-sans text-[13px] font-medium tracking-[0.1em] uppercase text-[var(--color-outline)] mb-4">
