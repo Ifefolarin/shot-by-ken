@@ -33,8 +33,8 @@ export async function sendContactEmail(data: ContactFormData): Promise<void> {
               <td style="padding:8px 0"><strong>${name}</strong></td></tr>
           <tr><td style="padding:8px 0;color:#444748">Email</td>
               <td style="padding:8px 0"><a href="mailto:${email}">${email}</a></td></tr>
-          ${phone ? `<tr><td style="padding:8px 0;color:#444748">Phone</td>
-              <td style="padding:8px 0">${phone}</td></tr>` : ""}
+          <tr><td style="padding:8px 0;color:#444748">Phone</td>
+              <td style="padding:8px 0">${phone}</td></tr>
           <tr><td style="padding:8px 0;color:#444748">Service</td>
               <td style="padding:8px 0">${SERVICE_LABELS[service] ?? service}</td></tr>
           ${date ? `<tr><td style="padding:8px 0;color:#444748">Preferred date</td>

@@ -13,7 +13,6 @@ const PORTFOLIO_IMAGES = [
   { src: "/images/portfolio/04.jpg", alt: "Woman in green dress among trees",         width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/05.jpg", alt: "Winter wedding first kiss",                width: 2048, height: 1365, category: "weddings" },
   { src: "/images/portfolio/06.jpg", alt: "Portrait with gold jewellery detail",      width: 1365, height: 2048, category: "studio"   },
-  { src: "/images/portfolio/07.jpg", alt: "Gold lace studio portrait",                width: 1336, height: 2048, category: "studio"   },
   { src: "/images/portfolio/09.jpg", alt: "Editorial portrait",                       width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/10.jpg", alt: "Studio portrait",                          width: 1365, height: 2048, category: "studio"   },
   { src: "/images/portfolio/11.jpg", alt: "Portrait session",                         width: 1365, height: 2048, category: "studio"   },

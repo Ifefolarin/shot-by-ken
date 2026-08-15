@@ -61,7 +61,7 @@ export function ServicesSection() {
           </p>
           <h2
             id="services-heading"
-            className="font-serif font-normal text-[clamp(2rem,4vw,2.5rem)] leading-[1.2] mb-16"
+            className="font-serif font-normal text-[clamp(2rem,4vw,2.5rem)] leading-[1.2] mb-16 text-[var(--color-primary)]"
           >
             What I Offer
           </h2>

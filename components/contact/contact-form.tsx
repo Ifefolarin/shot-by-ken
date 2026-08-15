@@ -132,12 +132,17 @@ export function ContactForm() {
 
       {/* Phone */}
       <div>
-        <label htmlFor={`${uid}-phone`} className={labelClass}>Phone Number (Optional)</label>
+        <label htmlFor={`${uid}-phone`} className={labelClass}>Phone Number *</label>
         <input
-          id={`${uid}-phone`} name="phone" type="tel" autoComplete="tel"
+          id={`${uid}-phone`} name="phone" type="tel" required autoComplete="tel"
+          pattern="^\+?[\d\s\-().]{7,20}$"
+          title="Enter a valid phone number (e.g. +1 437 227 8884)"
           value={formData.phone} onChange={handleChange}
-          className={inputClass} placeholder="Enter your phone number"
+          aria-invalid={!!fieldErrors.phone}
+          aria-describedby={fieldErrors.phone ? `${uid}-phone-error` : undefined}
+          className={inputClass} placeholder="+1 (000) 000-0000"
         />
+        {fieldErrors.phone && <p id={`${uid}-phone-error`} role="alert" className={errorClass}>{fieldErrors.phone}</p>}
       </div>
 
       {/* Service type — radio buttons */}

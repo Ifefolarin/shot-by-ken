@@ -1,5 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { Reveal } from "@/components/ui/reveal";
 
 const CURATED = [
   {
@@ -9,6 +11,7 @@ const CURATED = [
     height: 2048,
     tag: "Studio Session",
     title: "Black Valentine",
+    index: "01",
   },
   {
     src: "/images/curated/02.jpg",
@@ -17,6 +20,7 @@ const CURATED = [
     height: 1365,
     tag: "Wedding",
     title: "The Proposal",
+    index: "02",
   },
   {
     src: "/images/curated/03.jpg",
@@ -25,48 +29,149 @@ const CURATED = [
     height: 2048,
     tag: "Wedding",
     title: "Steph and Favour",
+    index: "03",
   },
-];
+] as const;
+
+function useReveal(threshold = 0.12) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+}
+
+function CuratedRow({
+  item,
+  reversed,
+}: {
+  item: (typeof CURATED)[number];
+  reversed: boolean;
+}) {
+  const { ref: imgRef, visible: imgVisible } = useReveal();
+  const { ref: textRef, visible: textVisible } = useReveal();
+
+  return (
+    <article
+      className={`
+        flex flex-col
+        ${reversed ? "md:flex-row-reverse" : "md:flex-row"}
+        items-center gap-10 md:gap-16 lg:gap-24
+        mb-24 md:mb-40 last:mb-0
+      `}
+    >
+      {/* Image */}
+      <div
+        ref={imgRef}
+        className="w-full md:w-1/2"
+        style={{
+          opacity: imgVisible ? 1 : 0,
+          transform: imgVisible ? "none" : "translateY(2.5rem)",
+          transition:
+            "opacity 0.9s cubic-bezier(0.32,0.72,0,1), transform 0.9s cubic-bezier(0.32,0.72,0,1)",
+        }}
+      >
+        {/* Double-bezel shell */}
+        <div className="p-1.5 bg-black/[0.025] ring-1 ring-black/[0.05]">
+          {/* Inner core */}
+          <div className="overflow-hidden group">
+            <Image
+              src={item.src}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
+              className="w-full h-auto object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.03]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Text */}
+      <div
+        ref={textRef}
+        className="w-full md:w-1/2 flex flex-col justify-center"
+        style={{
+          opacity: textVisible ? 1 : 0,
+          transform: textVisible ? "none" : "translateY(1.5rem)",
+          transition:
+            "opacity 0.9s cubic-bezier(0.32,0.72,0,1) 130ms, transform 0.9s cubic-bezier(0.32,0.72,0,1) 130ms",
+        }}
+      >
+        <span className="font-sans text-[11px] font-medium tracking-[0.25em] uppercase text-[var(--color-outline)] mb-5 block">
+          {item.index}
+        </span>
+        <span
+          className="
+            inline-flex mb-5 w-max
+            rounded-full px-3 py-1
+            text-[10px] font-medium font-sans uppercase tracking-[0.2em]
+            border border-[var(--color-outline-variant)]
+            text-[var(--color-outline)]
+          "
+        >
+          {item.tag}
+        </span>
+        <h3
+          className="
+            font-serif font-normal
+            text-[clamp(2.25rem,5vw,3.75rem)]
+            leading-[1.05] tracking-[-0.01em]
+            text-[var(--color-primary)]
+            mb-8
+          "
+        >
+          {item.title}
+        </h3>
+        <div
+          className="h-px bg-[var(--color-outline-variant)]"
+          style={{
+            width: textVisible ? "3.5rem" : "0",
+            transition: "width 0.9s cubic-bezier(0.32,0.72,0,1) 380ms",
+          }}
+        />
+      </div>
+    </article>
+  );
+}
 
 export function CuratedWorksSection() {
+  const { ref: headRef, visible: headVisible } = useReveal(0.2);
+
   return (
     <section aria-label="Curated works" className="py-[var(--spacing-section)]">
       <div className="max-w-[1440px] mx-auto px-[var(--spacing-margin-mobile)] lg:px-[var(--spacing-margin-desktop)]">
-        <Reveal>
+        {/* Section header */}
+        <div
+          ref={headRef}
+          className="mb-20 md:mb-32"
+          style={{
+            opacity: headVisible ? 1 : 0,
+            transform: headVisible ? "none" : "translateY(1.5rem)",
+            transition:
+              "opacity 0.8s cubic-bezier(0.32,0.72,0,1), transform 0.8s cubic-bezier(0.32,0.72,0,1)",
+          }}
+        >
           <p className="font-sans text-[13px] font-medium tracking-[0.1em] uppercase text-[var(--color-outline)] mb-4">
             Curated Works
           </p>
-          <h2 className="font-serif font-normal text-[clamp(2rem,4vw,2.5rem)] leading-[1.2] mb-16">
+          <h2 className="font-serif font-normal text-[clamp(2rem,4vw,2.5rem)] leading-[1.2]">
             Selected Stories
           </h2>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
-          {CURATED.map((item, i) => (
-            <Reveal key={item.src} delay={i * 120} className="flex flex-col">
-              <article className="group flex flex-col">
-                <div className="overflow-hidden mb-5">
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    width={item.width}
-                    height={item.height}
-                    className="w-full h-auto object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="font-sans text-[11px] font-medium tracking-[0.15em] uppercase text-[var(--color-outline)] border border-[var(--color-outline-variant)] px-3 py-1">
-                    {item.tag}
-                  </span>
-                  <h3 className="font-serif font-bold text-lg leading-[1.3] uppercase tracking-[0.05em]">
-                    {item.title}
-                  </h3>
-                </div>
-              </article>
-            </Reveal>
-          ))}
         </div>
+
+        {/* Zigzag rows: 1→right, 2→left, 3→right */}
+        {CURATED.map((item, i) => (
+          <CuratedRow key={item.src} item={item} reversed={i % 2 !== 0} />
+        ))}
       </div>
     </section>
   );
