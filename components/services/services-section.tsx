@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { BookButton } from "./book-button";
 
 const SERVICES = [
   {
@@ -123,8 +124,8 @@ export function ServicesSection() {
                       <span className={`font-serif font-normal ${isFeature ? "text-4xl" : "text-3xl"}`}>
                         {service.price}
                       </span>
-                      <a
-                        href={`?service=${service.id}#contact`}
+                      <BookButton
+                        serviceId={service.id}
                         className="
                           w-full text-center
                           bg-[var(--color-primary)] text-[var(--color-surface)]
@@ -132,9 +133,7 @@ export function ServicesSection() {
                           transition-opacity duration-300 hover:opacity-80
                           active:scale-[0.97]
                         "
-                      >
-                        Book
-                      </a>
+                      />
                     </div>
                   </div>
                 </article>
