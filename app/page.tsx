@@ -15,53 +15,34 @@ export default function Home() {
       <ServicesSection />
 
       {/* Contact / Book a Session — two-column: form left, photo right */}
-      <section id="contact" aria-labelledby="contact-heading" className="relative">
-        {/* Background photo — visible on mobile, hidden on lg (where the dedicated photo column shows) */}
-        <div aria-hidden="true" className="absolute inset-0 lg:hidden overflow-hidden">
-          <Image
-            src="/images/contact.jpg"
-            alt=""
-            fill
-            className="object-cover object-top opacity-60"
-            sizes="100vw"
-            quality={75}
-          />
-          {/* gradient: dark at top for readable white text, fades to white for readable form inputs */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/40 to-[var(--color-background)]" />
-        </div>
-
-        <div className="relative z-10 flex flex-col lg:flex-row">
+      <section id="contact" aria-labelledby="contact-heading">
+        <div className="flex flex-col lg:flex-row">
           {/* Form column */}
-          <div className="
-            flex-1 lg:max-w-[680px]
-            py-[var(--spacing-section)]
-            px-[var(--spacing-margin-mobile)] lg:px-[var(--spacing-margin-desktop)]
-            lg:bg-[var(--color-background)]
-          ">
+          <div className="flex-1 lg:max-w-[680px] py-[var(--spacing-section)] px-[var(--spacing-margin-mobile)] lg:px-[var(--spacing-margin-desktop)]">
             <Reveal>
-              <p className="font-sans text-[13px] font-medium tracking-[0.1em] uppercase text-white/60 lg:text-[var(--color-outline)] mb-4">
+              <p className="font-sans text-[13px] font-medium tracking-[0.1em] uppercase text-[var(--color-outline)] mb-4">
                 Contact
               </p>
               <h2
                 id="contact-heading"
-                className="font-serif font-normal text-[clamp(2rem,4vw,2.5rem)] leading-[1.2] mb-4 text-white lg:text-[var(--color-primary)]"
+                className="font-serif font-normal text-[clamp(2rem,4vw,2.5rem)] leading-[1.2] mb-4 text-[var(--color-primary)]"
               >
                 Book a Session
               </h2>
-              <p className="font-sans text-base text-white/70 lg:text-[var(--color-on-surface-variant)] max-w-lg mb-10">
+              <p className="font-sans text-base text-[var(--color-on-surface-variant)] max-w-lg mb-10">
                 Ready to create something together? Fill in the form below and Ken will
                 get back to you within 2–3 business days.
               </p>
 
               {/* Contact info */}
-              <div className="flex flex-wrap gap-x-12 gap-y-8 pb-10 mb-10 border-b border-white/20 lg:border-[var(--color-outline-variant)]">
+              <div className="flex flex-wrap gap-x-12 gap-y-8 pb-10 mb-10 border-b border-[var(--color-outline-variant)]">
                 <div>
-                  <p className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-white/50 lg:text-[var(--color-outline)] mb-2">
+                  <p className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-[var(--color-outline)] mb-2">
                     Inquiries
                   </p>
                   <a
                     href="mailto:shottbykenneth@gmail.com"
-                    className="font-sans text-sm text-white lg:text-[var(--color-primary)] underline underline-offset-2 decoration-white/30 lg:decoration-[var(--color-outline-variant)] hover:decoration-white lg:hover:decoration-[var(--color-primary)] transition-all flex items-center gap-1.5"
+                    className="font-sans text-sm text-[var(--color-primary)] underline underline-offset-2 decoration-[var(--color-outline-variant)] hover:decoration-[var(--color-primary)] transition-all flex items-center gap-1.5"
                   >
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
                       <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -71,12 +52,12 @@ export default function Home() {
                   </a>
                 </div>
                 <div>
-                  <p className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-white/50 lg:text-[var(--color-outline)] mb-2">
+                  <p className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-[var(--color-outline)] mb-2">
                     Studio
                   </p>
                   <a
                     href="tel:+14372278884"
-                    className="font-sans text-sm text-white lg:text-[var(--color-primary)] underline underline-offset-2 decoration-white/30 lg:decoration-[var(--color-outline-variant)] hover:decoration-white lg:hover:decoration-[var(--color-primary)] transition-all flex items-center gap-1.5"
+                    className="font-sans text-sm text-[var(--color-primary)] underline underline-offset-2 decoration-[var(--color-outline-variant)] hover:decoration-[var(--color-primary)] transition-all flex items-center gap-1.5"
                   >
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/>
@@ -85,10 +66,10 @@ export default function Home() {
                   </a>
                 </div>
                 <div>
-                  <p className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-white/50 lg:text-[var(--color-outline)] mb-2">
+                  <p className="font-sans text-[11px] font-medium tracking-[0.12em] uppercase text-[var(--color-outline)] mb-2">
                     Location
                   </p>
-                  <p className="font-sans text-sm text-white lg:text-[var(--color-primary)] flex items-center gap-1.5">
+                  <p className="font-sans text-sm text-[var(--color-primary)] flex items-center gap-1.5">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">
                       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
                       <circle cx="12" cy="10" r="3"/>

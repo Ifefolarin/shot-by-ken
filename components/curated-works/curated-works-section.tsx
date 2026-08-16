@@ -132,10 +132,10 @@ function CuratedRow({
           {item.title}
         </h3>
         <div
-          className="h-px bg-[var(--color-outline-variant)]"
+          className="h-px w-14 bg-[var(--color-outline-variant)] origin-left"
           style={{
-            width: textVisible ? "3.5rem" : "0",
-            transition: "width 0.9s cubic-bezier(0.32,0.72,0,1) 380ms",
+            transform: textVisible ? "scaleX(1)" : "scaleX(0)",
+            transition: "transform 0.9s cubic-bezier(0.32,0.72,0,1) 380ms",
           }}
         />
       </div>
