@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useId } from "react";
+import { useState, useId, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 type FormState = "idle" | "loading" | "success" | "error" | "rate-limited";
 
@@ -33,15 +34,27 @@ const SERVICE_OPTIONS = [
   { value: "other",    label: "Other" },
 ];
 
+const SERVICE_VALUES = ["studio", "events", "weddings", "other"];
+
 export function ContactForm() {
   const uid = useId();
+  const searchParams = useSearchParams();
   const [state, setFormState] = useState<FormState>("idle");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
+  const prefilledService = searchParams.get("service") ?? "";
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "",
-    service: "", date: "", message: "",
+    service: SERVICE_VALUES.includes(prefilledService) ? prefilledService : "",
+    date: "", message: "",
   });
+
+  useEffect(() => {
+    const s = searchParams.get("service") ?? "";
+    if (SERVICE_VALUES.includes(s)) {
+      setFormData((prev) => ({ ...prev, service: s }));
+    }
+  }, [searchParams]);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

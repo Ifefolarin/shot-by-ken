@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import { Hero } from "@/components/hero";
 import { CuratedWorksSection } from "@/components/curated-works/curated-works-section";
@@ -81,7 +82,9 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={120}>
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </Reveal>
           </div>
 

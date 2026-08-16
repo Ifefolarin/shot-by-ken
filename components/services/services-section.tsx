@@ -124,7 +124,7 @@ export function ServicesSection() {
                         {service.price}
                       </span>
                       <a
-                        href="#contact"
+                        href={`?service=${service.id}#contact`}
                         className="
                           w-full text-center
                           bg-[var(--color-primary)] text-[var(--color-surface)]
