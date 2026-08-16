@@ -23,22 +23,29 @@ export function Footer() {
           alt="Shot by Ken"
           width={48}
           height={53}
-          className="h-10 w-auto opacity-80"
+          className="h-10 w-auto"
         />
 
-        {/* Contact details */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 font-sans text-sm text-[var(--color-on-surface-variant)]">
+        {/* Contact icons */}
+        <div className="flex items-center gap-5">
           <a
             href={`tel:${phone.replace(/\s/g, "")}`}
-            className="underline underline-offset-2 decoration-[var(--color-outline-variant)] hover:text-[var(--color-primary)] hover:decoration-[var(--color-primary)] transition-all"
+            aria-label={`Call ${phone}`}
+            className="text-[var(--color-outline)] hover:text-[var(--color-primary)] transition-colors duration-200"
           >
-            {phone}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/>
+            </svg>
           </a>
           <a
             href={`mailto:${email}`}
-            className="underline underline-offset-2 decoration-[var(--color-outline-variant)] hover:text-[var(--color-primary)] hover:decoration-[var(--color-primary)] transition-all"
+            aria-label={`Email ${email}`}
+            className="text-[var(--color-outline)] hover:text-[var(--color-primary)] transition-colors duration-200"
           >
-            {email}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
           </a>
         </div>
 
