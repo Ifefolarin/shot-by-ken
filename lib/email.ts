@@ -19,7 +19,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<void> {
   const { name, email, phone, service, date, message } = data;
 
   await getResend().emails.send({
-    from:    "Shot by Ken Website <no-reply@shottbyken.com>",
+    from:    "Shot by Ken Website <no-reply@shottbyken.ca>",
     to:      [process.env.CONTACT_EMAIL!],
     replyTo: email,
     subject: `New booking enquiry from ${name}`,
@@ -45,7 +45,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<void> {
           <div style="background:#f5f3f3;padding:16px;white-space:pre-wrap">${message}</div>
         </div>
         <p style="color:#747878;font-size:12px;margin-top:32px">
-          Sent via shottbyken.com
+          Sent via shottbyken.ca
         </p>
       </div>
     `,
@@ -57,7 +57,7 @@ export async function sendErrorAlert(
   context?: Record<string, unknown>
 ): Promise<void> {
   await getResend().emails.send({
-    from:    "Shot by Ken Alerts <no-reply@shottbyken.com>",
+    from:    "Shot by Ken Alerts <no-reply@shottbyken.ca>",
     to:      [process.env.ALERT_EMAIL!],
     subject: `[Shot by Ken] Site error: ${error.message.slice(0, 80)}`,
     html: `
