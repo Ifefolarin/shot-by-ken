@@ -7,7 +7,7 @@ interface BookButtonProps {
 
 export function BookButton({ serviceId, className }: BookButtonProps) {
   function handleClick() {
-    sessionStorage.setItem("prefill_service", serviceId);
+    window.dispatchEvent(new CustomEvent("prefill-service", { detail: serviceId }));
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   }
 

@@ -46,11 +46,14 @@ export function ContactForm() {
   });
 
   useEffect(() => {
-    const prefill = sessionStorage.getItem("prefill_service");
-    if (prefill && SERVICE_VALUES.includes(prefill)) {
-      setFormData((prev) => ({ ...prev, service: prefill }));
-      sessionStorage.removeItem("prefill_service");
+    function onPrefill(e: Event) {
+      const service = (e as CustomEvent<string>).detail;
+      if (SERVICE_VALUES.includes(service)) {
+        setFormData((prev) => ({ ...prev, service }));
+      }
     }
+    window.addEventListener("prefill-service", onPrefill);
+    return () => window.removeEventListener("prefill-service", onPrefill);
   }, []);
 
   function handleChange(
